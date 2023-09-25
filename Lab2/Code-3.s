@@ -1,4 +1,4 @@
-# 3. take input from user and check if its prime or not
+e# 3. take input from user and check if its prime or not
 
 .data
 num: .asciiz "enter number: "
