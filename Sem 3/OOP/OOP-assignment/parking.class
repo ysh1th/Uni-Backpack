@@ -1,0 +1,35 @@
+import java.util.*;
+public class parking {
+    public String parking;
+    public String district;
+    public parking (String district) {
+        this.district=district;
+    }
+    public String allotPark() {
+         String[] parkABC = new String[]{"A","B","C"};
+         String[] parkDEF = new String[]{"D","E","F"};
+         String[] parkGHI = new String[]{"G","H","I"};
+        Random r = new Random();
+        int parkNum=0;
+        int randomNumber=r.nextInt(parkABC.length);
+        parkNum=r.nextInt(50);
+
+        switch (this.district) {
+            case "mobility", "jubilee" -> {
+                return parkDEF[randomNumber] + "(" + parkNum + ")";
+            }
+            case "opportunity", "al forsan" -> {
+                parking = "";
+                return parkGHI[randomNumber] + "(" + parkNum + ")";
+            }
+            case "al wasl" -> {
+                parking = "";
+                return parkABC[randomNumber] + "(" + parkNum + ")";
+            }
+            default -> {
+                return parkABC[randomNumber] + "(" + parkNum + ")";
+            }
+            // allots parking for sustainability district also
+        }
+    }
+}

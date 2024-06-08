@@ -1,0 +1,183 @@
+package distpav;
+import activities.*;
+import java.util.*;
+abstract class harshadon {
+    void askdist() {
+    }
+}
+public class distpav extends harshadon {
+    public String district;
+    public distpav(){}
+
+    public distpav(String currentDist){
+        this.district = currentDist;
+    } //constructor overriding
+    @Override
+    public void askdist() {
+        Scanner s = new Scanner(System.in);
+        System.out.println("\n\nwhich district would you like to enter? \n");
+        districts();
+//        String garbageScan1 = s.nextLine();
+        String selectDist = s.nextLine();
+        String currentDist = selectDist.toLowerCase().replaceAll("\\s+", "");
+        System.out.println("\n\nyou chose " + currentDist);
+        if (currentDist.equals("alwasl")) {
+            System.out.println("The beating heart of Expo 2020");
+            askdist();
+        }
+        if (currentDist.equals("exit")) {
+            System.exit(0); //exits code successfully
+        }
+        askpav(currentDist);
+    }
+
+    public void askpav(String currentDist){
+        Scanner s = new Scanner(System.in);
+        pavilions(currentDist);
+        System.out.println("\nChoose pavilion to explore activities in "+currentDist+" district");
+        String selectPav = s.nextLine();
+        String currentPav = selectPav.toLowerCase().replaceAll("\\s+", "");
+        if (currentPav.equals("exit")) {
+            askdist();
+//            System.exit(0); //exits code successfully
+        }
+        checkPav pav = new checkPav(currentPav, currentDist);
+        pav.allotAct();
+
+        System.out.println("\n\nthank you for visiting "+selectPav);
+        System.out.println("\n\nWant to have pavilions view or districts view?\n\t- For pavilions view: enter 1\n\t- To exit expo: enter 0\n\t- For district view: enter any number other than 0 and 1 ");
+        int a = s.nextInt();
+
+        if (a==0) {
+            System.exit(0); //exits code successfully
+        }
+        else if (a==1){
+            askpav(currentDist);
+        }
+        else {
+            askdist();
+        }
+    }
+
+
+//    public String getDistrict(String currentDist){
+//        return currentDist;
+//    }
+    public void districts() {
+        LinkedList<String> ll1 = new LinkedList<String>();
+        ll1.add("opportunity");
+        ll1.add("sustainability");
+        ll1.add("mobility");
+        ll1.add("al forsan");
+        ll1.add("jubilee");
+        ll1.add("al wasl");
+        ll1.add("\tExit from Expo2020 (type exit)");
+
+        {
+            ListIterator<String> iterator = ll1.listIterator();
+            while (iterator.hasNext()) {
+                System.out.println(iterator.next());
+            }
+//            for (int i = 0; i<ll1.size(); i++) {
+//                System.out.println(ll1.get(i) + " ");
+//            }
+        }
+    }
+
+    public void pavilions(String currentDist) {
+        switch (currentDist){
+            case "sustainability":
+                LinkedList<String> lls = new LinkedList<String>();
+                lls.add("                __                             __           _____ __  ________________    _____   _____    ____  ______    ____________  __\n" +
+                        " _      _____  / /________  ____ ___  ___     / /_____     / ___// / / / ___/_  __/   |  /  _/ | / /   |  / __ )/  _/ /   /  _/_  __/\\ \\/ /\n" +
+                        "| | /| / / _ \\/ / ___/ __ \\/ __ `__ \\/ _ \\   / __/ __ \\    \\__ \\/ / / /\\__ \\ / / / /| |  / //  |/ / /| | / __  |/ // /    / /  / /    \\  / \n" +
+                        "| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/  / /_/ /_/ /   ___/ / /_/ /___/ // / / ___ |_/ // /|  / ___ |/ /_/ // // /____/ /  / /     / /  \n" +
+                        "|__/|__/\\___/_/\\___/\\____/_/ /_/ /_/\\___/   \\__/\\____/   /____/\\____//____//_/ /_/  |_/___/_/ |_/_/  |_/_____/___/_____/___/ /_/     /_/   ");
+                lls.add("1:Brazil");
+                lls.add("2:Singapore");
+                lls.add("3:Campus Germany");
+                lls.add("\tExit from district");
+
+                for (String ll : lls) {
+                    System.out.println(ll + " ");
+                }
+                break;
+//                System.out.println("Or direct to exit?");
+
+            case "opportunity":
+                LinkedList<String> llo = new LinkedList<String>();
+                llo.add("                __                             __           ____  ____  ____  ____  ____  ________  ___   ______________  __\n" +
+                        " _      _____  / /________  ____ ___  ___     / /_____     / __ \\/ __ \\/ __ \\/ __ \\/ __ \\/_  __/ / / / | / /  _/_  __/\\ \\/ /\n" +
+                        "| | /| / / _ \\/ / ___/ __ \\/ __ `__ \\/ _ \\   / __/ __ \\   / / / / /_/ / /_/ / / / / /_/ / / / / / / /  |/ // /  / /    \\  / \n" +
+                        "| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/  / /_/ /_/ /  / /_/ / ____/ ____/ /_/ / _, _/ / / / /_/ / /|  // /  / /     / /  \n" +
+                        "|__/|__/\\___/_/\\___/\\____/_/ /_/ /_/\\___/   \\__/\\____/   \\____/_/   /_/    \\____/_/ |_| /_/  \\____/_/ |_/___/ /_/     /_/   ");
+                llo.add("1:Saudi Arabia");
+                llo.add("2:UK");
+                llo.add("3:China");
+                llo.add("\tExit from district");
+
+                for (String element : llo) {
+                    System.out.println(element + " ");
+                }
+                break;
+
+
+            case "mobility":
+                LinkedList<String> llm = new LinkedList<String>();
+                llm.add("                __                             __           __  _______  ____  ______    ____________  __\n" +
+                        " _      _____  / /________  ____ ___  ___     / /_____     /  |/  / __ \\/ __ )/  _/ /   /  _/_  __/\\ \\/ /\n" +
+                        "| | /| / / _ \\/ / ___/ __ \\/ __ `__ \\/ _ \\   / __/ __ \\   / /|_/ / / / / __  |/ // /    / /  / /    \\  / \n" +
+                        "| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/  / /_/ /_/ /  / /  / / /_/ / /_/ // // /____/ /  / /     / /  \n" +
+                        "|__/|__/\\___/_/\\___/\\____/_/ /_/ /_/\\___/   \\__/\\____/  /_/  /_/\\____/_____/___/_____/___/ /_/     /_/   ");
+                llm.add("1:South Korea");
+                llm.add("2:Jamaica");
+                llm.add("3:France");
+                llm.add("\tExit from district");
+
+                for (String item : llm) {
+                    System.out.println(item + " ");
+                }
+                break;
+
+
+
+            case "alforsan":
+                LinkedList<String> llf = new LinkedList<String>();
+                llf.add("                __                             __           ___    __       __________  ____  _____ ___    _   __\n" +
+                        " _      _____  / /________  ____ ___  ___     / /_____     /   |  / /      / ____/ __ \\/ __ \\/ ___//   |  / | / /\n" +
+                        "| | /| / / _ \\/ / ___/ __ \\/ __ `__ \\/ _ \\   / __/ __ \\   / /| | / /      / /_  / / / / /_/ /\\__ \\/ /| | /  |/ / \n" +
+                        "| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/  / /_/ /_/ /  / ___ |/ /___   / __/ / /_/ / _, _/___/ / ___ |/ /|  /  \n" +
+                        "|__/|__/\\___/_/\\___/\\____/_/ /_/ /_/\\___/   \\__/\\____/  /_/  |_/_____/  /_/    \\____/_/ |_|/____/_/  |_/_/ |_/   ");
+                llf.add("1:India");
+                llf.add("2:UAE");
+                llf.add("3:Japan");
+                llf.add("\tExit from district");
+
+                for (String value : llf) {
+                    System.out.println(value + " ");
+                }
+                break;
+
+
+            case "jubilee":
+                LinkedList<String> llj = new LinkedList<String>();
+                llj.add("                __                             __               ____  ______  ______    ____________\n" +
+                        " _      _____  / /________  ____ ___  ___     / /_____         / / / / / __ )/  _/ /   / ____/ ____/\n" +
+                        "| | /| / / _ \\/ / ___/ __ \\/ __ `__ \\/ _ \\   / __/ __ \\   __  / / / / / __  |/ // /   / __/ / __/   \n" +
+                        "| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/  / /_/ /_/ /  / /_/ / /_/ / /_/ // // /___/ /___/ /___   \n" +
+                        "|__/|__/\\___/_/\\___/\\____/_/ /_/ /_/\\___/   \\__/\\____/   \\____/\\____/_____/___/_____/_____/_____/   ");
+                llj.add("1:Argentina");
+                llj.add("2:Portugal");
+                llj.add("3:Canada");
+                llj.add("\tExit from district");
+
+                for (String s : llj) {
+                    System.out.println(s + " ");
+                }
+                break;
+            default:
+                System.out.println("wrong name,\nwatch out for spelling errors ;)");
+                askdist();
+        }
+    }
+}

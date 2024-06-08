@@ -1,0 +1,1 @@
+- data and methods are binded together into one single unit

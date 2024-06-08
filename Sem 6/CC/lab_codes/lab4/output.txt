@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(idk){
+
+here is something
+to show you
+
+***************
+
+***************
+
+lol jk  
+}
